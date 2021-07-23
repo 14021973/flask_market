@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Login page...
+{% endblock %}
+
+{% block content %}
+
+<body class="text-center">
+
+<div class="container">
+<div class="row justify-content-md-center">
+<form method="POST" class="form-signin col col-lg-4" style="color:white">
+        {{ form.csrf_token }}
+    <h1 class="h3 mb-3 font-weight-normal">
+        Please Login
+    </h1>
+    <br>
+    {{ form.username.label() }}
+    {{ form.username(class="form-control", placeholder="User Name")}}
+
+    {{ form.password1.label() }}
+    {{ form.password1(class="form-control", placeholder="Password")}}
+
+<br><br>
+
+    <div class="checkbox mb-3">
+        <h6>Do not have an account?</h6>
+        <a class="btn btn-sm btn-secondary" href="{{url_for('register_page')}}">Register</a>
+    </div>
+<br><br>
+    {{ form.submit(class="btn btn-primary btn-lg btn-block ") }}
+</form>
+</div>
+</div>
+</body>
+{% endblock %}
+
